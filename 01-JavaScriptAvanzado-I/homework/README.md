@@ -15,26 +15,26 @@ var a = 5;
 var b = 10;
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x);
-  console.log(a);
+  console.log(x);// 10
+  console.log(a);// 8
   var f = function(a, b, c) {
     b = a;
-    console.log(b);
+    console.log(b);// 8
     b = c;
     var x = 5;
   }
   f(a,b,c);
-  console.log(b);
+  console.log(b);// 9
 }
 c(8,9,10);
-console.log(b);
-console.log(x);
+console.log(b);// 10
+console.log(x);// 1
 ```
 
 ```javascript
-console.log(bar);
-console.log(baz);
-foo();
+console.log(bar);// undef
+console.log(baz);// error
+foo(); // Hola
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
@@ -45,53 +45,53 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor);
+console.log(instructor);// "Franco"
 ```
 
 ```javascript
 var instructor = "Tony";
-console.log(instructor);
+console.log(instructor);// Tony
 (function() {
    if(true) {
       var instructor = "Franco";
-      console.log(instructor);
+      console.log(instructor);// Franco
    }
 })();
-console.log(instructor);
+console.log(instructor);// Tony
 ```
 ```javascript
 var instructor = "Tony";
 let pm = "Franco";
 if (true) {
-    var instructor = "The Flash";
+    var instructor = "The Flash";// The Flash
     let pm = "Reverse Flash";
-    console.log(instructor);
-    console.log(pm);
+    console.log(instructor);// The Flash
+    console.log(pm);// Reverse Flash
 }
-console.log(instructor);
-console.log(pm);
+console.log(instructor);// The Flash
+console.log(pm);// Franco
 ```
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3" // 2
+"2" * "3" // 6
+4 + 5 + "px" // 9px
+"$" + 4 + 5 // $45
+"4" - 2 // 2
+"4px" - 2 // NaN
+7 / 0 // Infinity
+{}[0] // Array[0]
+parseInt("09")// 9
+5 && 2 // 2
+2 && 5 // 5
+5 || 0 // 5
+0 || 5 // 0
+[3]+[3]-[10] // 3 concatena con 3 y la resta hace la cuenta = 33 -10
+3>2>1 //  3 > 2 => true => true>1 => lo pasa a numero =1 >>> 1 > 1 => false
+[] == ![] //  true , 1-parsea []=> false, y luego compara false con false y le da True
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -112,7 +112,7 @@ function test() {
    }
 }
 
-test();
+test(); // undefined , 2
 ```
 
 Y el de este código? :
@@ -128,7 +128,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false);
+getFood(false); // undefined  
 ```
 
 
@@ -148,11 +148,11 @@ var obj = {
    }
 };
 
-console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname());// Aurelio de Rosa
 
 var test = obj.prop.getFullname;
 
-console.log(test());
+console.log(test());// Juan Perez
 ```
 
 ### Event loop
@@ -167,5 +167,5 @@ function printing() {
    console.log(4);
 }
 
-printing();
+printing();// 1 4 3 2 
 ```
